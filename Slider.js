@@ -197,8 +197,9 @@ var Slider = React.createClass({
             mainStyles.thumb, thumbStyle,
             {
               transform: [
-                { translateX: thumbLeft },
-                { translateY: -(trackSize.height + thumbSize.height) / 2 }
+                // Add || 0 to prevent NaN
+                { translateX: thumbLeft || 0 },
+                { translateY: (-(trackSize.height + thumbSize.height) / 2) || 0 }
               ],
               ...valueVisibleStyle
             }
